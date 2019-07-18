@@ -1,34 +1,37 @@
 package main
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestGenerateCryptoSafeStringShortLen(t *testing.T) {
-	desiredLenOfString := 1
+	const desiredLenOfString = 1
 	cryptoSafeString := GenerateCryptoSafeString(desiredLenOfString)
 	lenOfString := len(cryptoSafeString)
 	if lenOfString != desiredLenOfString {
-		t.Errorf("Len of string was incorrect, got: %d, want: %d.", lenOfString, desiredLenOfString)
+		t.Errorf("Len of string was incorrect (got: %d, want: %d).", lenOfString, desiredLenOfString)
 	}
 }
 
 func TestGenerateCryptoSafeStringLongLen(t *testing.T) {
-	desiredLenOfString := 256
+	const desiredLenOfString = 256
 	cryptoSafeString := GenerateCryptoSafeString(desiredLenOfString)
 	lenOfString := len(cryptoSafeString)
 	if lenOfString != desiredLenOfString {
-		t.Errorf("Len of string was incorrect, got: %d, want: %d.", lenOfString, desiredLenOfString)
+		t.Errorf("Len of string was incorrect (got: %d, want: %d).", lenOfString, desiredLenOfString)
 	}
 }
 
 func TestGenerateCryptoSafeStringDummyCollision(t *testing.T) {
-	desiredLenOfString := 16
+	const (
+		desiredLenOfString = 16
+		maxIterations = 100000
+		defaultValueForStringInHashMap = 0
+	)
+
 	i := 0
 	// Declare a hash map for random strings
 	hashMapOfRandomStrings := map[string]int8{}
 
-	for i < 100000 {
+	for i < maxIterations {
 		// Generate a new random string
 		var cryptoSafeString = GenerateCryptoSafeString(desiredLenOfString)
 
@@ -45,9 +48,8 @@ func TestGenerateCryptoSafeStringDummyCollision(t *testing.T) {
 		}
 
 		// Add string to hash map
-		hashMapOfRandomStrings[cryptoSafeString] = 0
+		hashMapOfRandomStrings[cryptoSafeString] = defaultValueForStringInHashMap
 
 		i += 1
 	}
-
 }

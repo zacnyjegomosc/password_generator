@@ -2,11 +2,10 @@ package main
 
 import "crypto/rand"
 
-// Length of random string
-const strLen int = 32
-
-// How many string we want to get
-const countOfStrings int = 1
+const (
+	strLen int = 32  // Length of random string
+	countOfStrings int = 1  // How many string we want to get
+)
 
 // Return a new secure random string
 func GenerateCryptoSafeString(strLen int) string {
