@@ -1,4 +1,7 @@
 # Password generator
+
+[![Build Status](https://travis-ci.com/zacnyjegomosc/password_generator.svg?branch=master)](https://travis-ci.com/zacnyjegomosc/password_generator)
+
 ## Simple and cryptographic secure random password generator (or another string).
 
 This is a small private command line tool, written in Go for learning and having fun (and to have a straightforward, fast and secure
