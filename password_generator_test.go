@@ -61,17 +61,17 @@ func TestGenerateCryptoSafeStringDummyCollision(t *testing.T) {
 func TestGenerateCryptoSafeStringCharsDistribution(t *testing.T) {
 	const (
 		maxTestCount = 100  // We want to make this test X times
-		checkFirstCharsCount = 8  // We want to check a first X chars from our score list.
-		digitIsTheBeginningThreshold = 50  // We want to have at least X digits occurs.
-		desiredLenOfString = 32  // Our len of generated random string.
-		maxIterations = 10000  // We want to generate X string for one test.
+		checkFirstCharsCount = 8  // We want to check first X chars from our score list
+		digitIsTheBeginningThreshold = 50  // We want to have at least X digits occurs
+		desiredLenOfString = 32  // This is the length of our generated random string
+		maxIterations = 10000  // We want to generate X string for one test
 	)
 
 	testCounter := 0
 	digitAtTheBeginningOfStringCount := 0
 	allTriesCounter := 0
 
-	// For every test...
+	// For every test iteration...
 	for testCounter < maxTestCount {
 		i := 0
 		// Declare a hash map for chars
@@ -123,7 +123,7 @@ func TestGenerateCryptoSafeStringCharsDistribution(t *testing.T) {
 		testCounter += 1
 	}
 
-	// If we have to much digits in "winners"...
+	// If we have too many digits in "winners"...
 	if digitAtTheBeginningOfStringCount < digitIsTheBeginningThreshold {
 		// This is bad.
 		t.Errorf("We have a small chance to get a digit in the beginning. Now it was the only %d for %d tries.",
