@@ -10,7 +10,7 @@ const (
 // Return a new secure random string
 func GenerateCryptoSafeString(strLen int) string {
 	// Chars collection, as list of ASCII bytes (uint8)
-	strPossibleChars := []uint8("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+	strPossibleChars := []uint8("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$")
 	lenOfPossibleChars := len(strPossibleChars)
 
 	// Make a buffers in memory
