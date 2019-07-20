@@ -3,7 +3,7 @@ package main
 import "crypto/rand"
 
 const (
-	strLen int = 32  // Length of random string
+	strLen         int = 32 // Length of random string
 	countOfStrings int = 1  // How many string we want to get
 )
 
@@ -27,9 +27,9 @@ func GenerateCryptoSafeString(strLen int) string {
 		}
 
 		// For every byte in buffer
- 		for _, randomByte := range randomBytes {
- 			// Choose a char
-			stringToReturn[iterationsCount] = strPossibleChars[int(randomByte) % lenOfPossibleChars]
+		for _, randomByte := range randomBytes {
+			// Choose a char
+			stringToReturn[iterationsCount] = strPossibleChars[int(randomByte)%lenOfPossibleChars]
 			iterationsCount += 1
 
 			// If it will be enough

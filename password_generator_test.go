@@ -26,8 +26,8 @@ func TestGenerateCryptoSafeStringLongLen(t *testing.T) {
 
 func TestGenerateCryptoSafeStringDummyCollision(t *testing.T) {
 	const (
-		desiredLenOfString = 16
-		maxIterations = 100000
+		desiredLenOfString             = 16
+		maxIterations                  = 100000
 		defaultValueForStringInHashMap = 0
 	)
 
@@ -60,11 +60,11 @@ func TestGenerateCryptoSafeStringDummyCollision(t *testing.T) {
 
 func TestGenerateCryptoSafeStringCharsDistribution(t *testing.T) {
 	const (
-		maxTestCount = 100  // We want to make this test X times
-		checkFirstCharsCount = 8  // We want to check first X chars from our score list
-		digitIsTheBeginningThreshold = 50  // We want to have at least X digits occurs
-		desiredLenOfString = 32  // This is the length of our generated random string
-		maxIterations = 10000  // We want to generate X string for one test
+		maxTestCount                 = 100   // We want to make this test X times
+		checkFirstCharsCount         = 8     // We want to check first X chars from our score list
+		digitIsTheBeginningThreshold = 50    // We want to have at least X digits occurs
+		desiredLenOfString           = 32    // This is the length of our generated random string
+		maxIterations                = 10000 // We want to generate X string for one test
 	)
 
 	testCounter := 0
