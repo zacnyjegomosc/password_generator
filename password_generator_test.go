@@ -6,6 +6,13 @@ import (
 	"testing"
 )
 
+func TestLengthOfPossibleCharactersCollection(t *testing.T) {
+	lenOfPossibleChars := len(possibleChars)
+	if lenOfPossibleChars != 64 {
+		t.Errorf("Length of possible characters collection is not 64 (is: %d).", lenOfPossibleChars)
+	}
+}
+
 func TestGenerateCryptoSafeStringShortLen(t *testing.T) {
 	const desiredLenOfString = 1
 	cryptoSafeString := GenerateCryptoSafeString(desiredLenOfString)

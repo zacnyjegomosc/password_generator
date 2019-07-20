@@ -6,14 +6,15 @@ import (
 )
 
 const (
-	defaultStrLen         int = 32 // Length of random string
-	defaultCountOfStrings int = 1  // How many string we want to get
+	defaultStrLen         int    = 32 // Length of random string
+	defaultCountOfStrings int    = 1  // How many string we want to get
+	possibleChars         string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$"
 )
 
 // GenerateCryptoSafeString return a new secure random string
 func GenerateCryptoSafeString(strLen int) string {
 	// Chars collection, as list of ASCII bytes (uint8)
-	strPossibleChars := []uint8("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$")
+	strPossibleChars := []uint8(possibleChars)
 	lenOfPossibleChars := len(strPossibleChars)
 
 	// Make a buffers in memory
@@ -22,8 +23,9 @@ func GenerateCryptoSafeString(strLen int) string {
 
 	iterationsCount := 0
 
-	for {
-		// Read a byte
+	for iterationsCount < strLen {
+
+		// Read a random bytes
 		_, errorOccurred := rand.Read(randomBytes)
 		if errorOccurred != nil {
 			panic(errorOccurred)
@@ -31,18 +33,15 @@ func GenerateCryptoSafeString(strLen int) string {
 
 		// For every byte in buffer
 		for _, randomByte := range randomBytes {
-			// Choose a char
+
+			// Choose a char and add it to stringToReturn
 			stringToReturn[iterationsCount] = strPossibleChars[int(randomByte)%lenOfPossibleChars]
 			iterationsCount += 1
-
-			// If it will be enough
-			if iterationsCount == strLen {
-
-				// Return a random string
-				return string(stringToReturn)
-			}
 		}
 	}
+
+	// Return a random string
+	return string(stringToReturn)
 }
 
 // PrepareArgumentsForGenerator reads command-line flags or set defaults values
