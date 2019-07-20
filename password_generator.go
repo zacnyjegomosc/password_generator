@@ -45,17 +45,24 @@ func GenerateCryptoSafeString(strLen int) string {
 	}
 }
 
-func main() {
-	loopCount := 0
-
+// PrepareArgumentsForGenerator reads command-line flags or set defaults values
+func PrepareArgumentsForGenerator() (int, int) {
 	// Read command-line flags or set defaults values
 	howManyRandomStringsWeNeed := flag.Int("count", defaultCountOfStrings, "How many strings do you need?")
 	strLen := flag.Int("len", defaultStrLen, "What length of string do you need?")
 
 	flag.Parse()
 
-	for loopCount < *howManyRandomStringsWeNeed {
-		cryptoSafeString := GenerateCryptoSafeString(*strLen)
+	return *howManyRandomStringsWeNeed, *strLen
+}
+
+func main() {
+	loopCount := 0
+
+	howManyRandomStringsWeNeed, strLen := PrepareArgumentsForGenerator()
+
+	for loopCount < howManyRandomStringsWeNeed {
+		cryptoSafeString := GenerateCryptoSafeString(strLen)
 		println(cryptoSafeString)
 		loopCount += 1
 	}

@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/zacnyjegomosc/password_generator.svg?branch=master)](https://travis-ci.com/zacnyjegomosc/password_generator) 
 [![Go Report Card](https://goreportcard.com/badge/github.com/zacnyjegomosc/password_generator)](https://goreportcard.com/report/github.com/zacnyjegomosc/password_generator)
+[![codecov](https://codecov.io/gh/zacnyjegomosc/password_generator/branch/master/graph/badge.svg)](https://codecov.io/gh/zacnyjegomosc/password_generator)
 
 ## Simple and cryptographic secure random password generator (or another string).
 

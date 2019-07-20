@@ -130,3 +130,14 @@ func TestGenerateCryptoSafeStringCharsDistribution(t *testing.T) {
 			digitAtTheBeginningOfStringCount, allTriesCounter)
 	}
 }
+
+func TestPrepareArgumentsForGenerator(t *testing.T) {
+	howManyRandomStringsWeNeed, strLen := PrepareArgumentsForGenerator()
+	if howManyRandomStringsWeNeed != defaultCountOfStrings {
+		t.Errorf("Invalid desired random strings count.")
+	}
+
+	if strLen != defaultStrLen {
+		t.Errorf("Invalid desired string length.")
+	}
+}
