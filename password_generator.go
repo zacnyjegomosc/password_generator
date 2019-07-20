@@ -21,23 +21,20 @@ func GenerateCryptoSafeString(strLen int) string {
 	stringToReturn := make([]byte, strLen)
 	randomBytes := make([]byte, strLen)
 
-	iterationsCount := 0
+	// Read a random bytes
+	_, errorOccurred := rand.Read(randomBytes)
+	if errorOccurred != nil {
+		panic(errorOccurred)
+	}
 
-	for iterationsCount < strLen {
+	charNumber := 0
 
-		// Read a random bytes
-		_, errorOccurred := rand.Read(randomBytes)
-		if errorOccurred != nil {
-			panic(errorOccurred)
-		}
+	// For every byte in buffer
+	for _, randomByte := range randomBytes {
 
-		// For every byte in buffer
-		for _, randomByte := range randomBytes {
-
-			// Choose a char and add it to stringToReturn
-			stringToReturn[iterationsCount] = strPossibleChars[int(randomByte)%lenOfPossibleChars]
-			iterationsCount += 1
-		}
+		// Choose a char and add it to stringToReturn
+		stringToReturn[charNumber] = strPossibleChars[int(randomByte)%lenOfPossibleChars]
+		charNumber += 1
 	}
 
 	// Return a random string
