@@ -7,7 +7,6 @@ const (
 	countOfStrings int = 1  // How many string we want to get
 )
 
-// Return a new secure random string
 func GenerateCryptoSafeString(strLen int) string {
 	// Chars collection, as list of ASCII bytes (uint8)
 	strPossibleChars := []uint8("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$")
