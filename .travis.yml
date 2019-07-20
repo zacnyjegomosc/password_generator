@@ -1,1 +1,4 @@
 language: go
+
+env:
+  - CODECOV_TOKEN="6ce01c39-f907-4d52-a84e-c8808ab1db1b"
