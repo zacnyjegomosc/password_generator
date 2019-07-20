@@ -1,10 +1,13 @@
 package main
 
-import "crypto/rand"
+import (
+	"crypto/rand"
+	"flag"
+)
 
 const (
-	strLen         int = 32 // Length of random string
-	countOfStrings int = 1  // How many string we want to get
+	defaultStrLen         int = 32 // Length of random string
+	defaultCountOfStrings int = 1  // How many string we want to get
 )
 
 // GenerateCryptoSafeString return a new secure random string
@@ -45,8 +48,14 @@ func GenerateCryptoSafeString(strLen int) string {
 func main() {
 	loopCount := 0
 
-	for loopCount < countOfStrings {
-		cryptoSafeString := GenerateCryptoSafeString(strLen)
+	// Read command-line flags or set defaults values
+	howManyRandomStringsWeNeed := flag.Int("count", defaultCountOfStrings, "How many strings do you need?")
+	strLen := flag.Int("len", defaultStrLen, "What length of string do you need?")
+
+	flag.Parse()
+
+	for loopCount < *howManyRandomStringsWeNeed {
+		cryptoSafeString := GenerateCryptoSafeString(*strLen)
 		println(cryptoSafeString)
 		loopCount += 1
 	}
