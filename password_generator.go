@@ -57,10 +57,8 @@ func PrepareArgumentsForGenerator() (int, int) {
 }
 
 // RunGenerator evaluate all high-level logic
-func RunGenerator() {
+func RunGenerator(howManyRandomStringsWeNeed int, strLen int) {
 	loopCount := 0
-
-	howManyRandomStringsWeNeed, strLen := PrepareArgumentsForGenerator()
 
 	for loopCount < howManyRandomStringsWeNeed {
 		cryptoSafeString := GenerateCryptoSafeString(strLen)
@@ -70,5 +68,6 @@ func RunGenerator() {
 }
 
 func main() {
-	RunGenerator()
+	howManyRandomStringsWeNeed, strLen := PrepareArgumentsForGenerator()
+	RunGenerator(howManyRandomStringsWeNeed, strLen)
 }

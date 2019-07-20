@@ -143,5 +143,5 @@ func TestPrepareArgumentsForGenerator(t *testing.T) {
 }
 
 func TestRunGenerator(t *testing.T) {
-	RunGenerator()
+	RunGenerator(defaultCountOfStrings, defaultStrLen)
 }
