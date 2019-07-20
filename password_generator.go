@@ -20,7 +20,7 @@ func GenerateCryptoSafeString(strLen int) string {
 	// Make a buffers in memory
 	stringToReturn := make([]byte, strLen)
 	randomBytes := make([]byte, strLen)
-	
+
 	// Read a random bytes
 	_, errorOccurred := rand.Read(randomBytes)
 	if errorOccurred != nil {
