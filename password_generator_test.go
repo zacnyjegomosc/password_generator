@@ -33,7 +33,7 @@ func TestGenerateCryptoSafeStringLongLen(t *testing.T) {
 
 func TestGenerateCryptoSafeStringDummyCollision(t *testing.T) {
 	const (
-		desiredLenOfString             = 16
+		desiredLenOfString             = 32
 		maxIterations                  = 100000
 		defaultValueForStringInHashMap = 0
 	)
