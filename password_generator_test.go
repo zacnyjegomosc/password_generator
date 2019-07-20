@@ -141,3 +141,5 @@ func TestPrepareArgumentsForGenerator(t *testing.T) {
 		t.Errorf("Invalid desired string length.")
 	}
 }
+
+func TestRunGenerator(t *testing.T) {}
