@@ -11,7 +11,7 @@ const (
 	possibleChars         string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$"
 )
 
-// GenerateCryptoSafeString return a new secure random string
+// GenerateCryptoSafeString returns a new secure random string
 func GenerateCryptoSafeString(strLen int) string {
 	// Chars collection, as list of ASCII bytes (uint8)
 	strPossibleChars := []uint8(possibleChars)
@@ -52,7 +52,7 @@ func PrepareArgumentsForGenerator() (int, int) {
 	return *howManyRandomStringsWeNeed, *strLen
 }
 
-// RunGenerator evaluate all high-level logic
+// RunGenerator evaluates all high-level logic
 func RunGenerator(howManyRandomStringsWeNeed int, strLen int) {
 	loopCount := 0
 
